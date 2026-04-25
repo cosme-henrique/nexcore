@@ -6,15 +6,29 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsx src/index.ts",
-    "build": "tsc",
-    "test": "echo \"No tests yet\""
+    "build": "tsup",
+    "lint": "biome lint ./src",
+    "format": "biome format ./src --write",
+    "check": "biome check ./src",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
-  "keywords": ["nextjs", "business-logic", "library"],
+  "keywords": [
+    "nextjs",
+    "business-logic",
+    "library"
+  ],
   "author": "",
   "license": "MIT",
   "packageManager": "pnpm@10.26.1",
   "devDependencies": {
+    "@biomejs/biome": "^2.4.13",
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.6.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.9",
+    "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^6.0.3"
   }
