@@ -15,11 +15,12 @@ Biblioteca centralizada de regras de negócio e abstrações para projetos Next.
 
 ```
 src/
-  modules/    # Regras de negócio por domínio (ex: auth, user, order)
+  configure/  # Inicialização da lib — Configure() + singleton api
+  classes/    # Abstrações de lógicas complexas (HttpClient, TokenService, EnvService)
   hooks/      # React hooks reutilizáveis para Next.js
-  utils/      # Funções puras utilitárias (ex: format, date, string)
-  classes/    # Classes que abstraem lógicas complexas (ex: HttpClient)
+  modules/    # Regras de negócio por domínio (ex: auth, user, order)
   types/      # Tipos e interfaces compartilhados entre módulos
+  utils/      # Funções puras utilitárias (ex: format, date, string)
   index.ts    # API pública — exporta tudo para quem importar a lib
 dist/         # Build gerado pelo tsup (não commitar)
 ```
