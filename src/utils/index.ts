@@ -1,3 +1,4 @@
+export { capitalize } from './capitalize';
 export { formatCEP } from './formatCEP';
 export { formatCNPJ } from './formatCNPJ';
 export { formatCPF } from './formatCPF';
@@ -10,3 +11,6 @@ export { isValidCNPJ } from './isValidCNPJ';
 export { isValidCPF } from './isValidCPF';
 export { isValidEmail } from './isValidEmail';
 export { isValidPhone } from './isValidPhone';
+export { removeAccents } from './removeAccents';
+export { slugify } from './slugify';
+export { truncate } from './truncate';
