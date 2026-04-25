@@ -1,14 +1,5 @@
-// modules
-export * from './modules';
-
-// hooks
-export * from './hooks';
-
-// utils
-export * from './utils';
-
-// classes
 export * from './classes';
-
-// types
+export * from './hooks';
+export * from './modules';
 export * from './types';
+export * from './utils';
