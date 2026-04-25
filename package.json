@@ -22,15 +22,20 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "next": ">=14.0.0"
+    "next": ">=14.0.0",
+    "react": "^19.2.5"
   },
   "packageManager": "pnpm@10.26.1",
   "devDependencies": {
     "@biomejs/biome": "^2.4.13",
+    "@testing-library/react": "^16.3.2",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
     "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
     "next": "^16.2.4",
+    "react": "^19.2.5",
     "ts-jest": "^29.4.9",
     "tsup": "^8.5.1",
     "tsx": "^4.21.0",
