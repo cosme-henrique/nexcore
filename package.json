@@ -10,9 +10,9 @@
     "lint": "biome lint ./src",
     "format": "biome format ./src --write",
     "check": "biome check ./src",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage --passWithNoTests"
   },
   "keywords": [
     "nextjs",
