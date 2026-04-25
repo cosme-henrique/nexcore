@@ -63,3 +63,17 @@ src/utils/format/
 ```
 feature/nome → dev → main
 ```
+
+## Documentação
+
+Toda a documentação da lib — o que cada util/hook/classe faz, como usar, exemplos e onde aplicar — está centralizada no Obsidian:
+
+```
+/home/cosme/Documentos/Obsidian/Pessoal/Trabalho/nexcore/
+```
+
+**IMPORTANTE:** Antes de criar qualquer novo util, hook, classe ou módulo, consulte a documentação no Obsidian para:
+- Verificar se já existe algo similar implementado
+- Entender o padrão de documentação adotado
+- Checar o backlog em `01 - Backlog.md` para ver o que está planejado
+- Seguir os exemplos de uso já documentados
