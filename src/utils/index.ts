@@ -5,3 +5,8 @@ export { formatCurrency } from './formatCurrency';
 export { formatDate } from './formatDate';
 export { formatFileSize } from './formatFileSize';
 export { formatPhone } from './formatPhone';
+export { isValidCEP } from './isValidCEP';
+export { isValidCNPJ } from './isValidCNPJ';
+export { isValidCPF } from './isValidCPF';
+export { isValidEmail } from './isValidEmail';
+export { isValidPhone } from './isValidPhone';
