@@ -50,6 +50,7 @@ describe('Configure', () => {
     expect(MockedHttpClient).toHaveBeenCalledWith({
       baseURL: 'https://api.example.com',
       token: expect.any(Function),
+      onUnauthorized: expect.any(Function),
     });
   });
 
