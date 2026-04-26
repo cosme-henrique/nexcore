@@ -12,6 +12,7 @@ type HttpClientConfig = {
   headers?: Record<string, string>;
   token?: () => string | null | undefined | Promise<string | null | undefined>;
   onError?: (error: HttpClientError) => void;
+  onUnauthorized?: () => Promise<boolean>;
 };
 
 export class HttpClientError extends Error {
@@ -53,6 +54,7 @@ export class HttpClient {
     path: string,
     body?: unknown,
     options?: RequestOptions,
+    isRetry = false,
   ): Promise<T> {
     const url = `${this.config.baseURL}${path}`;
     const headers = await this.buildHeaders(options?.headers as Record<string, string>);
@@ -67,6 +69,13 @@ export class HttpClient {
     const data = await response.json().catch(() => null);
 
     if (!response.ok) {
+      if (response.status === 401 && !isRetry && this.config.onUnauthorized) {
+        const refreshed = await this.config.onUnauthorized();
+        if (refreshed) {
+          return this.request<T>(method, path, body, options, true);
+        }
+      }
+
       const error = new HttpClientError(
         `${method} ${path} failed with status ${response.status}`,
         response.status,
