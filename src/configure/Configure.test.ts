@@ -1,12 +1,4 @@
-import { EnvService } from '../classes/EnvService';
 import { __reset, api, Configure } from './Configure';
-
-jest.mock('../classes/EnvService', () => ({
-  EnvService: {
-    register: jest.fn(),
-    get: jest.fn(),
-  },
-}));
 
 jest.mock('../classes/TokenService', () => ({
   TokenService: {
@@ -24,28 +16,20 @@ jest.mock('../classes/HttpClient', () => ({
   })),
 }));
 
-const mockedEnvService = EnvService as jest.Mocked<typeof EnvService>;
-
 describe('Configure', () => {
   beforeEach(() => {
     __reset();
     jest.clearAllMocks();
   });
 
-  it('chama EnvService.register com as envs fornecidas', () => {
-    const envs = { nodeEnv: { value: 'development' } };
-    Configure({ envs });
-    expect(mockedEnvService.register).toHaveBeenCalledWith(envs);
-  });
-
-  it('não exige envs para funcionar', () => {
-    expect(() => Configure({ auth: { autoRefresh: true } })).not.toThrow();
-  });
-
   it('aceita configuração de auth', () => {
     expect(() =>
       Configure({ auth: { autoRefresh: true, onSessionExpired: '/login' } }),
     ).not.toThrow();
+  });
+
+  it('aceita chamada sem opções', () => {
+    expect(() => Configure({})).not.toThrow();
   });
 });
 
