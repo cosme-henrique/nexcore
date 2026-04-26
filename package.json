@@ -3,7 +3,20 @@
   "version": "0.1.0",
   "description": "Centralized business rules and abstractions for Next.js projects",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.mjs",
+      "require": "./dist/server.js"
+    }
+  },
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsup",
@@ -23,7 +36,7 @@
   "license": "MIT",
   "peerDependencies": {
     "next": ">=14.0.0",
-    "react": "^19.2.5"
+    "react": ">=19.0.0"
   },
   "packageManager": "pnpm@10.26.1",
   "devDependencies": {
@@ -35,7 +48,7 @@
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
     "next": "^16.2.4",
-    "react": "^19.2.5",
+    "react": ">=19.0.0",
     "ts-jest": "^29.4.9",
     "tsup": "^8.5.1",
     "tsx": "^4.21.0",
