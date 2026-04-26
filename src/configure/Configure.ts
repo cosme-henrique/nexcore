@@ -1,16 +1,11 @@
-import { EnvService } from '../classes/EnvService';
 import { HttpClient } from '../classes/HttpClient';
 import { type AuthConfig, setAuthConfig } from './configStore';
 
-type EnvMap = Parameters<typeof EnvService.register>[0];
-
 export type ConfigureOptions = {
-  envs?: EnvMap;
   auth?: AuthConfig;
 };
 
 export function Configure(options: ConfigureOptions): void {
-  if (options.envs) EnvService.register(options.envs);
   if (options.auth) setAuthConfig(options.auth);
 }
 
