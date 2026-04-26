@@ -1,4 +1,7 @@
-import { cookies } from 'next/headers';
+async function getCookies() {
+  const { cookies } = await import('next/headers');
+  return cookies();
+}
 
 type CookieOptions = {
   maxAge?: number;
@@ -24,12 +27,12 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 export const TokenService = {
   async get(): Promise<string | undefined> {
-    const store = await cookies();
+    const store = await getCookies();
     return store.get(ACCESS_TOKEN_KEY)?.value;
   },
 
   async set(token: string, options: CookieOptions = {}): Promise<void> {
-    const store = await cookies();
+    const store = await getCookies();
     store.set(ACCESS_TOKEN_KEY, token, {
       httpOnly: true,
       secure: isProduction,
@@ -39,17 +42,17 @@ export const TokenService = {
   },
 
   async remove(): Promise<void> {
-    const store = await cookies();
+    const store = await getCookies();
     store.delete(ACCESS_TOKEN_KEY);
   },
 
   async getRefresh(): Promise<string | undefined> {
-    const store = await cookies();
+    const store = await getCookies();
     return store.get(REFRESH_TOKEN_KEY)?.value;
   },
 
   async setRefresh(token: string, options: CookieOptions = {}): Promise<void> {
-    const store = await cookies();
+    const store = await getCookies();
     store.set(REFRESH_TOKEN_KEY, token, {
       httpOnly: true,
       secure: isProduction,
@@ -59,7 +62,7 @@ export const TokenService = {
   },
 
   async removeRefresh(): Promise<void> {
-    const store = await cookies();
+    const store = await getCookies();
     store.delete(REFRESH_TOKEN_KEY);
   },
 

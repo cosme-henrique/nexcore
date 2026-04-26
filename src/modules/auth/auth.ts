@@ -1,6 +1,5 @@
-import { redirect } from 'next/navigation';
-import { TokenService } from '../../classes/TokenService';
 import { api } from '../../configure';
+import { TokenService } from '../../classes/TokenService';
 import type {
   AuthTokens,
   AuthUser,
@@ -57,6 +56,9 @@ export const auth = {
 
   async requireAuth(redirectTo = '/login'): Promise<void> {
     const authenticated = await TokenService.exists();
-    if (!authenticated) redirect(redirectTo);
+    if (!authenticated) {
+      const { redirect } = await import('next/navigation');
+      redirect(redirectTo);
+    }
   },
 };
