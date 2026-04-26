@@ -1,5 +1,5 @@
-import { api } from '../../configure';
 import { TokenService } from '../../classes/TokenService';
+import { api } from '../../configure';
 import type {
   AuthTokens,
   AuthUser,
